@@ -1,0 +1,166 @@
+
+### 1. Variables and Data Types
+Q1. What is the result of `type(10.5)` in Python?
+A. int
+B. float
+C. str
+D. bool
+
+Q2. How do you declare a constant in Python by convention?
+A. const_name
+B. ConstName
+C. CONST_NAME
+D. ConstantName
+
+Q3. What does the following code output?
+a, b = 5, 10
+a, b = b, a
+print(a, b)
+A. 10 5
+B. 5 10
+C. 15 5
+D. Error
+
+---
+
+### 2. Operators
+Q1. Which operator is used for floor division in Python?
+A. /
+B. //
+C. %
+D. ^
+
+Q2. What is the output of the following code?
+result = 5 ** 2
+print(result)
+A. 25
+B. 10
+C. 5
+D. Error
+
+Q3. What is the result of the expression (3 + 6) * 2 - 8 // 2?
+A. 16
+B. 12
+C. 10
+D. 14
+
+---
+
+### 3. Conditional Statements
+Q1. What is the output of the following code?
+age = 18
+if age > 18:
+    print("Adult")
+else:
+    print("Not Adult")
+A. Adult
+B. Not Adult
+C. Error
+D. None
+
+Q2. Which operator is used to combine multiple conditions in Python?
+A. &&
+B. and
+C. ||
+D. combine
+
+Q3. What is the correct way to use the ternary operator?
+A. x = if a > b then a else b
+B. x = a if a > b else b
+C. x = a > b ? a : b
+D. x = a else b if a > b
+
+---
+
+### 4. Loops
+Q1. What is the purpose of the `continue` statement in a loop?
+A. Exit the loop.
+B. Skip the current iteration and continue with the next iteration.
+C. Restart the loop from the beginning.
+D. Skip all iterations and end the loop.
+
+Q2. What is the output of the following code?
+for i in range(3):
+    for j in range(2):
+        print(i, j)
+A. (0, 1), (1, 1), (2, 1)
+B. (0, 0), (0, 1), (1, 0), (1, 1), (2, 0), (2, 1)
+C. (0, 0), (1, 1), (2, 2)
+D. Error
+
+Q3. Which loop guarantees at least one iteration even if the condition is false?
+A. for
+B. while
+C. do-while
+D. None
+
+---
+
+### 5. User-Defined Functions
+Q1. Which keyword is used to define a function in Python?
+A. def
+B. func
+C. function
+D. lambda
+
+Q2. What is the correct way to call the following function?
+def greet(name):
+    print(f"Hello, {name}!")
+A. greet(name="Alice")
+B. greet Alice
+C. call greet Alice
+D. Hello, Alice!
+
+Q3. What does the following function return?
+def add(a, b=5):
+    return a + b
+result = add(3)
+print(result)
+A. 3
+B. 5
+C. 8
+D. Error
+
+---
+
+### 6. Lambda Functions
+Q1. What is a lambda function in Python?
+A. A function defined using the lambda keyword.
+B. A function with no name.
+C. A small, anonymous function.
+D. All of the above.
+
+Q2. What is the output of the following code?
+double = lambda x: x * 2
+print(double(4))
+A. 4
+B. 8
+C. Error
+D. None
+
+Q3. What does the `map` function do in Python?
+A. Applies a function to each item in an iterable.
+B. Filters elements of a list.
+C. Sorts a list based on a key.
+D. Combines two lists.
+
+---
+
+### 7. Modules and Packages
+Q1. What is a Python package?
+A. A single file containing Python code.
+B. A collection of modules.
+C. A predefined function in Python.
+D. A way to write anonymous functions.
+
+Q2. What is the purpose of the `__init__.py` file in a package?
+A. It initializes the package when imported.
+B. It is mandatory for every Python project.
+C. It contains the main function of the project.
+D. It defines global variables.
+
+Q3. How can you import a specific function from a module?
+A. import module.function
+B. from module import function
+C. import function from module
+D. module.function()
