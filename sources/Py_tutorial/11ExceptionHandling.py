@@ -56,7 +56,8 @@ if __name__ == "__main__":
 
     # Triggering FileSizeError
     print("\n--- FileSizeError Scenario ---")
-    exception_handling_demo("example.txt", "A" * 101)
+    letters = 'A' * 101
+    exception_handling_demo("example.txt", letters)
 
     # Triggering FileNotFoundError
     print("\n--- FileNotFoundError Scenario ---")

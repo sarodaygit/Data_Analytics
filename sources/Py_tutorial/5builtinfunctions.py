@@ -1,27 +1,37 @@
 # Import the math library
 import math
 
-# === Built-in Functions Examples ===
+def find_length(numbers):
+    count = 0
+    for num in numbers:
+        count += 1  # Increment the counter for each element
+    return count
 
-# Absolute value
-print("Absolute value of -10:", abs(-10))  # Output: 10
+def calculate_sum(numbers):
+    """
+    Calculates the sum of a list of numbers.
 
-# Power function
-print("2 raised to the power 3:", pow(2, 3))  # Output: 8
+    Parameters:
+        numbers (list): A list of numbers.
 
-# Rounding numbers
-print("Round 3.14159 to 2 decimal places:", round(3.14159, 2))  # Output: 3.14
+    Returns:
+        int: The sum of the numbers in the list.
+    """
+    total = 0
+    for num in numbers:
+        total += num
+    return total
 
-# Type conversion
-print("Convert '42' to integer:", int("42"))  # Output: 42
-print("Convert '3.14' to float:", float("3.14"))  # Output: 3.14
-print("Convert 123 to string:", str(123))  # Output: '123'
 
-# Length, max, min, and sum
+
+
+# Example Usage
 numbers = [1, 2, 3, 4, 5]
+length = find_length(numbers)
+print("Length of the list Without Builtin function:", length)  # Output: Length of the list: 5
 print("Length of the list:", len(numbers))  # Output: 5
-print("Maximum in the list:", max(numbers))  # Output: 5
-print("Minimum in the list:", min(numbers))  # Output: 1
+sumofvalues = calculate_sum(numbers)
+print("Sum of the list Without Builtin function:", sumofvalues)  # Output: Sum of the list: 15
 print("Sum of the list:", sum(numbers))  # Output: 15
 
 # Help and type
@@ -59,3 +69,19 @@ print("Convert pi radians to degrees:", math.degrees(math.pi))  # Output: 180.0
 # Constants
 print("Value of pi:", math.pi)  # Output: 3.141592653589793
 print("Value of Euler's number e:", math.e)  # Output: 2.718281828459045
+
+
+print("String Methods")
+
+# Case Conversion
+case_str = "hello WORLD"
+print("Lowercase:", case_str.lower())
+print("Uppercase:", case_str.upper())
+print("Capitalize:", case_str.capitalize())
+print("Title Case:", case_str.title())
+print("Swap Case:", case_str.swapcase())
+
+# Search and Replace
+search_str = "Hello World"
+print("Find 'World':", search_str.find("World"))
+print("Replace 'World' with 'Python':", search_str.replace("World", "Python"))

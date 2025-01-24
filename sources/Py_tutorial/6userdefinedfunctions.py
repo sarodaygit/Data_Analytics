@@ -1,9 +1,9 @@
 # Define a basic function with no parameters
-def greet():
-    """
-    Function to print a greeting message.
-    """
-    print("Hello, welcome to the demo of user-defined functions!")
+
+# Define a basic function with positional parameters
+def greet(name, age = 18):
+    print(f"Hello, {name}! You are {age} years old.")
+
 
 # Define a function with parameters
 def add_numbers(a, b):
@@ -19,18 +19,32 @@ def add_numbers(a, b):
     """
     return a + b
 
-# Define a function with default parameters
-def greet_user(name="Guest"):
+def sub_numbers(a, b, /):
     """
-    Function to greet a user with a default name if no name is provided.
+    Function to add two numbers.
     
     Parameters:
-        name (str): The name of the user (default is "Guest").
-    
+        a (int): The first number.
+        b (int): The second number.
+        
     Returns:
-        str: A greeting message.
+        int: The sum of a and b.
     """
-    return f"Hello, {name}!"
+    return a - b
+
+def multipy_numbers(*,a, b):
+    """
+    Function to add two numbers.
+    
+    Parameters:
+        a (int): The first number.
+        b (int): The second number.
+        
+    Returns:
+        int: The sum of a and b.
+    """
+    return a * b
+
 
 # Define a function with only positional and keyword arguments
 def positional_and_keyword(arg1, arg2, /, *, kwarg1, kwarg2):
@@ -95,20 +109,39 @@ def modify_global():
     global x
     x += 5
 
+def flexible_function(a, b, *args, **kwargs):
+    print(f"Positional arguments: a={a}, b={b}")
+    print(f"Extra positional arguments (*args): {args}")
+    print(f"Keyword arguments (**kwargs): {kwargs}")
+
+
+
+
+
 # Main block to demonstrate the functions
 if __name__ == "__main__":
-    # 1. Basic function call
-    greet()
+     # Demonstrating positional arguments and default parameters
+    greet("Alice", 25)
+    greet(25, "Alice")  # Output: Hello, 25! You are Alice years old.
+    # Calling the function using keyword arguments
+    greet(name="Bob", age=20)  # Output: Hello, Alice! You are 25 years old.
+    # Calling the function using keyword arguments (order doesn't matter)
+    greet(age=20, name="Bob")  # Output: Hello, Bob! You are 20 years
+    # Calling the function with one keyword argument and using the default value for the other
+    greet(name="Bob")  # Output: Hello, Bob! You are 18 years old.
+
 
     # 2. Function with parameters
     print("\nAdding numbers 5 and 7:")
     print(add_numbers(5, 7))  # Output: 12
 
-    # 3. Function with default parameters
-    print("\nGreeting with default parameter:")
-    print(greet_user())  # Output: Hello, Guest!
-    print("Greeting with custom parameter:")
-    print(greet_user("Alice"))  # Output: Hello, Alice!
+   # Demonstrating positional-only arguments
+    print(sub_numbers(10, 3))  # Output 7
+    print(sub_numbers(a=10, b= 3))  # Error since the function is defined with positional only arguments
+    # Demonstrating keyword-only arguments
+    print(multipy_numbers(a=10, b= 3))  # Output 30
+    print(multipy_numbers(10, 3))  # Erro since the function is defined with keyword only arguments
+
 
     # 4. Function with only positional and keyword arguments
     print("\nDemonstrating positional and keyword-only arguments:")
@@ -116,21 +149,21 @@ if __name__ == "__main__":
     print(positional_and_keyword(10, 20, kwarg2="World", kwarg1="Hello"))
     # Output: Positional: 10, 20; Keyword: Hello, World
 
-    # 5. Function with variable-length positional arguments
-    print("\nCalculating sum of multiple numbers:")
+    # # 5. Function with variable-length positional arguments
+    # print("\nCalculating sum of multiple numbers:")
+    print(calculate_sum(1, 2))  # Output: 3
     print(calculate_sum(1, 2, 3, 4, 5))  # Output: 15
 
-    # 6. Function with variable-length keyword arguments
-    print("\nDisplaying user details:")
+    # # 6. Function with variable-length keyword arguments
+    # print("\nDisplaying user details:")
     display_user(name="Bob", age=25, city="New York")
+    display_user(username="Alice", role="Admin")
 
-    # 7. Function with conditional logic
-    print("\nChecking if numbers are even:")
+    # # 7. Function with conditional logic
+    # print("\nChecking if numbers are even:")
     print(f"Is 4 even? {is_even(4)}")  # Output: True
     print(f"Is 7 even? {is_even(7)}")  # Output: False
 
-    # 8. Function with local and global variables
-    print("\nDemonstrating global variable modification:")
-    print(f"Global variable before modification: {x}")  # Output: 10
-    modify_global()
-    print(f"Global variable after modification: {x}")  # Output: 15
+    flexible_function(1, 2, 3, 4, 5, name="Alice", age=30)
+
+    

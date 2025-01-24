@@ -1,9 +1,12 @@
-def greeting():
-   print('completing task1')
-   print('completing task2')
-   print("Hello, World!")
-   return "Done"
+import mymodule
+from stringmodule import stringoperations
 
-r = greeting()
-print(r)
+if __name__ == '__main__':
 
+    sumoftwo = mymodule.add(2,3)
+    print(sumoftwo)
+
+    constr = stringoperations.strconcat("Hello", "World")
+    print(constr)
+
+    

@@ -1,90 +1,27 @@
-# Unified Example with Vehicle
+# dog.py
 
-# Class and Object
-class Vehicle:
-    def __init__(self, brand, model):
-        # Constructor to initialize the brand and model of a vehicle
-        self.brand = brand
-        self.model = model
+class Dog:
+    def __init__(self, name, breed, age):
+        """Initialize the Dog object with name, breed, and age."""
+        self.name = name
+        self.breed = breed
+        self.age = age
 
-    def display_info(self):
-        # Method to display vehicle information
-        print(f"Brand: {self.brand}, Model: {self.model}")
+    def bark(self):
+        """Make the dog bark."""
+        return f"{self.name} says Woof!"
 
-# Encapsulation
-class VehicleService:
-    def __init__(self, service_date):
-        # Constructor to initialize the service date (private attribute)
-        self.__service_date = service_date  # Private attribute
+    def get_details(self):
+        """Return the details of the dog."""
+        return f"Name: {self.name}, Breed: {self.breed}, Age: {self.age} years"
 
-    def update_service_date(self, new_date):
-        # Method to update the service date
-        self.__service_date = new_date
+# Creating instances (objects) of the Dog class
+dog1 = Dog("Buddy", "Golden Retriever", 3)
+dog2 = Dog("Max", "Beagle", 2)
 
-    def get_service_date(self):
-        # Method to retrieve the current service date
-        return self.__service_date
+# Calling methods on the objects
+print(dog1.get_details())  # Output: Name: Buddy, Breed: Golden Retriever, Age: 3 years
+print(dog1.bark())         # Output: Buddy says Woof!
 
-# Inheritance
-class Car(Vehicle):
-    def __init__(self, brand, model, fuel_type):
-        # Constructor to initialize car-specific attributes
-        super().__init__(brand, model)
-        self.fuel_type = fuel_type
-
-    def display_info(self):
-        # Method to display car-specific information
-        print(f"Brand: {self.brand}, Model: {self.model}, Fuel Type: {self.fuel_type}")
-
-# Polymorphism
-class Bike(Vehicle):
-    def display_info(self):
-        # Overridden method to display bike-specific information
-        print(f"Brand: {self.brand}, Model: {self.model} - This is a Bike")
-
-class VehicleManager:
-    @staticmethod
-    def show_vehicle_info(vehicle):
-        # Static method to display information for any vehicle
-        vehicle.display_info()
-
-# Abstraction
-from abc import ABC, abstractmethod
-
-class VehiclePart(ABC):
-    @abstractmethod
-    def part_info(self):
-        # Abstract method to provide part-specific information
-        pass
-
-class Engine(VehiclePart):
-    def part_info(self):
-        # Implementation of the abstract method for engine-specific information
-        print("This is the engine of the vehicle.")
-
-# Main code
-if __name__ == "__main__":
-    # Class and Object Example
-    vehicle1 = Vehicle("Toyota", "Corolla")
-    vehicle2 = Vehicle("Honda", "Civic")
-    vehicle1.display_info()
-    vehicle2.display_info()
-
-    # Encapsulation Example
-    service = VehicleService("2025-01-17")
-    print("Service Date:", service.get_service_date())
-    service.update_service_date("2025-06-20")
-    print("Updated Service Date:", service.get_service_date())
-
-    # Inheritance Example
-    car = Car("Tesla", "Model S", "Electric")
-    car.display_info()
-
-    # Polymorphism Example
-    bike = Bike("Yamaha", "YZF-R15")
-    VehicleManager.show_vehicle_info(car)
-    VehicleManager.show_vehicle_info(bike)
-
-    # Abstraction Example
-    engine = Engine()
-    engine.part_info()
+print(dog2.get_details())  # Output: Name: Max, Breed: Beagle, Age: 2 years
+print(dog2.bark())         # Output: Max says Woof!

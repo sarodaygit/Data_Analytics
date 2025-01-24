@@ -1,8 +1,11 @@
 # Import from my_package
+import simplemodule
 from mypackage import math_operations, string_operations
 from mypackage.utilities import math_helpers, string_helpers
 
 def main():
+    print(simplemodule.add(5, 3))  # Output: 8
+
     # === Using math_operations module ===
     print("Basic Math Operations:")
     print("Add 5 + 3:", math_operations.add(5, 3))  # Output: 8
