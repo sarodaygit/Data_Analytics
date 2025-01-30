@@ -1,3 +1,5 @@
+# dog.py
+
 class Dog:
     def __init__(self, name, breed, age):
         """Initialize the Dog object with name, breed, and age."""
@@ -12,7 +14,6 @@ class Dog:
     def get_details(self):
         """Return the details of the dog."""
         return f"Name: {self.name}, Breed: {self.breed}, Age: {self.age} years"
-      
 
 # Subclass: GuardDog (Inheritance)
 class GuardDog(Dog):
@@ -44,24 +45,28 @@ class PetDog(Dog):
         """Return details of the pet dog."""
         return f"Name: {self.name}, Breed: {self.breed}, Age: {self.age} years, Favorite Toy: {self.favorite_toy}"
 
+# Function demonstrating polymorphism
 def make_dog_bark(dog):
     """Function to make any dog bark."""
     print(dog.bark())
-    
 
-# Ensuring script runs only when executed directly
-if __name__ == "__main__":
+# Main function to create instances and demonstrate behavior
+def main():
+    # Creating instances
     dog1 = Dog("Buddy", "Golden Retriever", 3)
     guard_dog = GuardDog("Rex", "German Shepherd", 5, "Advanced")
     pet_dog = PetDog("Bella", "Labrador", 2, "Rubber Ball")
 
     # Displaying details and calling methods
     print(dog1.get_details())
-    make_dog_bark(dog1) # Calls dog1.bark()
+    make_dog_bark(dog1)
 
     print(guard_dog.get_details())
-    make_dog_bark(guard_dog) # Calls guard_dog.bark()
+    make_dog_bark(guard_dog)
 
     print(pet_dog.get_details())
-    make_dog_bark(pet_dog) # Calls pet_dog.bark()
+    make_dog_bark(pet_dog)
 
+# Ensuring script runs only when executed directly
+if __name__ == "__main__":
+    main()
