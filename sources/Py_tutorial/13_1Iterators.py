@@ -1,61 +1,52 @@
-import sys
-
-# Without Iterator: Generate all squares and store them in a list
-def generate_squares(n):
-    """
-    Generate a list of squares of numbers from 1 to n.
-    """
-    squares = []
-    for i in range(1, n + 1):
-        squares.append(i ** 2)
-    return squares
-
-# Iterator-based solution
-class SquaresIterator:
+class EvenNumbers:
     def __init__(self, limit):
-        self.current = 1
+        self.current = 0
         self.limit = limit
 
     def __iter__(self):
-        return self
+        return self  # The iterator object itself
 
     def __next__(self):
         if self.current > self.limit:
-            raise StopIteration
-        result = self.current ** 2
-        self.current += 1
-        return result
-
-# Main Program: Compare both approaches
-if __name__ == "__main__":
-    n = 5  # Example input size
-
-    # Without Iterator
-    print("\nSquares without iterator:")
-    squares_list = generate_squares(n)
-    for square in squares_list:
-        print(square)
-
-    # Memory usage without iterator
-    print("\nMemory used without iterator:", sys.getsizeof(squares_list), "bytes")
-
-    # With Iterator
-    print("\nSquares using iterator:")
-    squares_iterator = SquaresIterator(n)
-    for square in squares_iterator:
-        print(square)
-
-    # Memory usage with iterator
-    print("Memory used with iterator:", sys.getsizeof(squares_iterator), "bytes")
-
-    # Comparing large input
-    large_n = 1000000
-    print("\nMemory Usage Comparison for Large Input:")
+            raise StopIteration  # End iteration
+        value = self.current
+        self.current += 2  # Move to the next even number
+        return value
     
-    # Without Iterator for large input
-    large_squares_list = generate_squares(large_n)
-    print(f"Memory used for list of size {large_n}:", sys.getsizeof(large_squares_list), "bytes")
+if __name__ == "__main__":
+    # Step 1: Simple for loop
+    print("Step 1")
+    print("Simple for loop example:")
+    numbers = [1, 2, 3, 4, 5]
+    for num in numbers:
+        print(num)
 
-    # With Iterator for large input
-    large_squares_iterator = SquaresIterator(large_n)
-    print(f"Memory used for iterator of size {large_n}:", sys.getsizeof(large_squares_iterator), "bytes")
+    # Step 2: How for loop works internally
+    print("\nStep 2")
+    print("\nHow for loop works internally:")
+    iterator = iter(numbers)
+    print(next(iterator))  # 1
+    print(next(iterator))  # 2
+    print(next(iterator))  # 3
+    print(next(iterator))  # 4
+    print(next(iterator))  # 5
+
+    # Step 3: Custom Iterator for Even Numbers
+    print("\nStep 3")
+    print("\nCustom Iterator: Even Numbers")
+    even_iterator = EvenNumbers(10)
+    print(next(even_iterator))  # 0
+    
+    print("Fetching even numbers using a for loop:")
+    for num in even_iterator:
+        print(num)
+
+    # Step 4: Large Dataset Justification
+    print("\nStep 4")
+    large_even_iterator = EvenNumbers(1000000)
+    print("\nFetching first 5 even numbers from a large iterator:")
+    for _ in range(5):  # Fetch only the first 5
+        print(next(large_even_iterator))
+    print("Did some work here")
+    for _ in range(5):  # Fetch only the first 5
+        print(next(large_even_iterator))

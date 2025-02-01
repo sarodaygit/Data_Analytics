@@ -26,6 +26,15 @@ def squares_with_generator(n):
     for i in range(1, n + 1):
         yield i ** 2
 
+# Infinite Sequence Example
+
+def infinite_counter():
+    count = 1
+    while True:
+        yield count
+        count += 1
+
+
 # Testing the functionality
 if __name__ == "__main__":
     n = 10  # Input for demonstration
@@ -54,14 +63,10 @@ if __name__ == "__main__":
     large_squares_gen = squares_with_generator(large_n)
     print(f"Memory used for generator of size {large_n}:", sys.getsizeof(large_squares_gen), "bytes")
 
-    # Infinite Sequence Example
     print("\nInfinite Sequence Example (Using Generator):")
-    def infinite_counter():
-        count = 1
-        while True:
-            yield count
-            count += 1
-
     counter = infinite_counter()
     for _ in range(5):  # Printing first 5 values
+        print(next(counter))
+    print("Observe that counter continues indefinitely...")
+    for _ in range(50):  # Printing next 50 values
         print(next(counter))
