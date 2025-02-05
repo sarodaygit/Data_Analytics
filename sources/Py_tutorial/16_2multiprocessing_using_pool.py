@@ -35,7 +35,7 @@ if __name__ == "__main__":
     print(f"Number of numbers: {len(numbers):_}")
 
     # The number of processes to use
-    processes = 4
+    processes = 6
 
     # Divide the list of numbers into chunks for each process
     chunk_size = len(numbers) // processes

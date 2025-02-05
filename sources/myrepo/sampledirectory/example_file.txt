@@ -1,0 +1,3 @@
+Hello, World!
+this the second line
+This content was added using 'a' mode.
